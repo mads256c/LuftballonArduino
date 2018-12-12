@@ -5,33 +5,31 @@
 //Reads a command from the bluetooth module. buffer must be null initialized.
 Packet BluetoothController::ReadPacket()
 {
-	uint8_t buffer[9] = {0};
+	if (!softwareSerial.available())
+		return Packet{ 0, 0 };
 
-	if (softwareSerial.available())
+	while(softwareSerial.read() != 0xFF) {}
+	
+	uint8_t buffer[9] = { 0 };
+
+	softwareSerial.readBytes(buffer, sizeof(buffer));
+
+	Serial.println(buffer[0]);
+
+	uint64_t result = 0;
+	for (byte i = 8; i >= 1; i--)
 	{
-		softwareSerial.readBytes(buffer, sizeof(buffer));
-
-		Serial.println(buffer[0]);
-
-		uint64_t result = 0;
-		for (int i = 8; i >= 1; i--)
-		{
-			result <<= 8;
-			result |= (uint64_t)buffer[i];
-		}
-
-		char buff[24] = { 0 };
-
-		Serial.println(uintToStr(result, buff));
-
+		result <<= 8;
+		result |= static_cast<uint64_t>(buffer[i]);
 	}
 
+	char buff[24] = { 0 };
 
+	Serial.println(uintToStr(result, buff));
 
-	const Packet packet{ buffer[0], 0 };
+	const Packet packet{ buffer[0], result };
 
 	return packet;
-
 }
 
 void BluetoothController::HandlePacket(Packet& packet)
@@ -40,28 +38,44 @@ void BluetoothController::HandlePacket(Packet& packet)
 	switch (packet.Id)
 	{
 		DEFINE_PACKETHANDLER(1, HandleTestPacket);
+
 	default:
 		SendErrorPacket(ErrorCode::NoPacketHandler);
-		break;
+		return;
 	}
+
+	SendPacket(response);
 }
 
 void BluetoothController::SendPacket(Packet& packet)
 {
-	char buffer[24] = { 0 };
 
-	if (softwareSerial.availableForWrite())
-	{
-		softwareSerial.write(packet.Id); //Send packet id
-		softwareSerial.write(uintToStr(packet.Data, buffer)); //Send packet data
-		softwareSerial.write(' '); //End packet
-	}
+	//while (!softwareSerial.availableForWrite()) {}
+	softwareSerial.write(0xFF);
+
+	softwareSerial.write(packet.Id); //Send packet id
+
+	//while (!softwareSerial.availableForWrite()) {}
+
+	softwareSerial.write(static_cast<uint8_t>(packet.Data & 0xFF)); //Send packet data
+	softwareSerial.write(static_cast<uint8_t>((packet.Data >> 8) & 0xFF));
+	softwareSerial.write(static_cast<uint8_t>((packet.Data >> 16) & 0xFF));
+	softwareSerial.write(static_cast<uint8_t>((packet.Data >> 24) & 0xFF));
+	softwareSerial.write(static_cast<uint8_t>((packet.Data >> 32) & 0xFF));
+	softwareSerial.write(static_cast<uint8_t>((packet.Data >> 40) & 0xFF));
+	softwareSerial.write(static_cast<uint8_t>((packet.Data >> 48) & 0xFF));
+	softwareSerial.write(static_cast<uint8_t>((packet.Data >> 56) & 0xFF));
+
 }
 
 void BluetoothController::SendErrorPacket(const ErrorCode errorCode)
 {
 	Packet packet{ ErrorCodePacketId, static_cast<uint64_t>(errorCode) };
 
+	char buffer[24] = { 0 };
+
+	Serial.println(uintToStr(packet.Data, buffer));
+	
 	SendPacket(packet);
 }
 
@@ -79,5 +93,30 @@ void BluetoothController::Setup(const uint32_t baudrate)
 void BluetoothController::Loop()
 {
 	Packet packet = ReadPacket();
-	HandlePacket(packet);
+
+	if (packet.Id != 0)
+		HandlePacket(packet);
+
+	const auto currentTime = millis();
+
+	if (currentTime - lastHeartbeat > heartbeatInterval)
+	{
+		Packet heartbeatPacket{ 3, currentTime };
+		SendPacket(heartbeatPacket);
+
+		lastHeartbeat = currentTime;
+	}
+
+
+	//SendErrorPacket(ErrorCode::NoPacketHandler);
+
+	//softwareSerial.write(ErrorCodePacketId);
+	//softwareSerial.write(1);
+	//softwareSerial.write(2);
+	//softwareSerial.write(3);
+	//softwareSerial.write(4);
+	//softwareSerial.write(5);
+	//softwareSerial.write(6);
+	//softwareSerial.write(7);
+	//softwareSerial.write(8);
 }

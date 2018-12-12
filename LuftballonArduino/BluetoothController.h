@@ -9,6 +9,10 @@ class BluetoothController
 private:
 	SoftwareSerial softwareSerial;
 
+	unsigned long lastHeartbeat = 0;
+
+	const unsigned long heartbeatInterval = 1000;
+
 	Packet ReadPacket();
 	void HandlePacket(Packet &packet);
 

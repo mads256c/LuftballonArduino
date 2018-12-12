@@ -2,7 +2,7 @@
 
 struct Packet
 {
-	char Id;
+	uint8_t Id;
 	uint64_t Data;
 };
 

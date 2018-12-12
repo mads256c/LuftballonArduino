@@ -9,5 +9,5 @@ Packet HandleTestPacket(Packet& packet)
 {
 	Serial.println("LOLXD");
 
-	return NoopPacket;
+	return Packet{1, packet.Data};
 }
