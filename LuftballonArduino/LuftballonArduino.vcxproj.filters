@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{80c30c5f-e565-4b23-a619-f75dcfb2c0f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api-readonly">
+      <UniqueIdentifier>{ec6749a4-dfe0-46be-9eec-1ccc0958bdaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api-readonly\core">
+      <UniqueIdentifier>{9f0ff240-98cb-484b-bf7b-32c839dabe32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api-readonly\libraries">
+      <UniqueIdentifier>{2211e0fc-ecdd-4c09-acbc-85b214f5ad02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LuftballonArduino.ino" />
+    <None Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.S">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="__vm\.LuftballonArduino.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Arduino.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\binary.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Client.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial_private.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\new.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Printable.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Server.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Udp.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBAPI.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBDesc.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WCharacter.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_private.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard\pins_arduino.h">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClInclude>
+    <ClInclude Include="BluetoothController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHandlers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\CDC.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial0.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial1.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial2.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\HardwareSerial3.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\IPAddress.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\main.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\new.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\PluggableUSB.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Print.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Stream.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Tone.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\USBCore.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WMath.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp">
+      <Filter>src\_micro-api-readonly\core</Filter>
+    </ClCompile>
+    <ClCompile Include="BluetoothController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
