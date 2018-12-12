@@ -38,6 +38,7 @@ void BluetoothController::HandlePacket(Packet& packet)
 	switch (packet.Id)
 	{
 		DEFINE_PACKETHANDLER(1, HandleTestPacket);
+		DEFINE_PACKETHANDLER(4, HandleLedPacket);
 
 	default:
 		SendErrorPacket(ErrorCode::NoPacketHandler);
@@ -94,7 +95,7 @@ void BluetoothController::Loop()
 {
 	Packet packet = ReadPacket();
 
-	if (packet.Id != 0)
+	if (packet.Id != 0) // 0 in id means no data was received
 		HandlePacket(packet);
 
 	const auto currentTime = millis();

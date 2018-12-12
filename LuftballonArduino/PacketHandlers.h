@@ -11,3 +11,13 @@ Packet HandleTestPacket(Packet& packet)
 
 	return Packet{1, packet.Data};
 }
+
+Packet HandleLedPacket(Packet& packet)
+{
+	if (packet.Data)
+		digitalWrite(LED_BUILTIN, HIGH);
+	else
+		digitalWrite(LED_BUILTIN, LOW);
+
+	return NoopPacket;
+}

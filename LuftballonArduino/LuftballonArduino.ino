@@ -12,6 +12,9 @@ BluetoothController bluetoothController{ 10, 11 };
 void setup() {
 	Serial.begin(9600);
 	bluetoothController.Setup(9600);
+
+	pinMode(LED_BUILTIN, OUTPUT);
+	digitalWrite(LED_BUILTIN, LOW);
 }
 
 // the loop function runs over and over again until power down or reset
