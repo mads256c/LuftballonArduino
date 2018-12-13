@@ -25,6 +25,9 @@
     <Filter Include="src\_micro-api-readonly\libraries">
       <UniqueIdentifier>{2211e0fc-ecdd-4c09-acbc-85b214f5ad02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\PacketHandlers">
+      <UniqueIdentifier>{5c586f75-89a4-4db5-b5bf-35b2120e369c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="LuftballonArduino.ino" />
@@ -109,6 +112,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ErrorCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPacketHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LedHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="ServoHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,6 +5,7 @@
 */
 
 #include "BluetoothController.h"
+#include <Servo.h>
 
 BluetoothController bluetoothController{ 10, 11 };
 

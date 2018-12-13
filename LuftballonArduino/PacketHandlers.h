@@ -1,23 +1,29 @@
 #pragma once
+#ifndef PACKETHANDLERS_H
+#define PACKETHANDLERS_H
+
 #include "Packet.h"
 #include "Arduino.h"
+#include "IPacketHandler.h"
+#include "LedHandler.h"
+#include "ServoHandler.h"
 
-#define DEFINE_PACKETHANDLER(id, func) case id : {response = func(packet);} break
+#define DEFINE_PACKETHANDLER(id, constructer) PacketHandlers[id] = new constructer
 
+IPacketHandler* PacketHandlers[256] = { nullptr };
 
-Packet HandleTestPacket(Packet& packet)
+inline void AddPacketHandlers()
 {
-	Serial.println("LOLXD");
-
-	return Packet{1, packet.Data};
+	DEFINE_PACKETHANDLER(4, LedHandler(LED_BUILTIN));
+	DEFINE_PACKETHANDLER(5, ServoHandler(5));
 }
 
-Packet HandleLedPacket(Packet& packet)
+inline void InitializePacketHandlers()
 {
-	if (packet.Data)
-		digitalWrite(LED_BUILTIN, HIGH);
-	else
-		digitalWrite(LED_BUILTIN, LOW);
-
-	return NoopPacket;
+	for (IPacketHandler* packetHandler : PacketHandlers)
+	{
+		if (packetHandler != nullptr) packetHandler->Setup();
+	}
 }
+
+#endif

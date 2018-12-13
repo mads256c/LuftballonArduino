@@ -139,8 +139,11 @@
     <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard\pins_arduino.h" />
     <ClInclude Include="BluetoothController.h" />
     <ClInclude Include="ErrorCode.h" />
+    <ClInclude Include="IPacketHandler.h" />
+    <ClInclude Include="LedHandler.h" />
     <ClInclude Include="Packet.h" />
     <ClInclude Include="PacketHandlers.h" />
+    <ClInclude Include="ServoHandler.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="__vm\.LuftballonArduino.vsarduino.h" />
   </ItemGroup>

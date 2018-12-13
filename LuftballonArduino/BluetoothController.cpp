@@ -34,18 +34,15 @@ Packet BluetoothController::ReadPacket()
 
 void BluetoothController::HandlePacket(Packet& packet)
 {
-	Packet response{0, 0};
-	switch (packet.Id)
+	if (PacketHandlers[packet.Id] == nullptr)
 	{
-		DEFINE_PACKETHANDLER(1, HandleTestPacket);
-		DEFINE_PACKETHANDLER(4, HandleLedPacket);
-
-	default:
 		SendErrorPacket(ErrorCode::NoPacketHandler);
-		return;
 	}
-
-	SendPacket(response);
+	else
+	{
+		Packet response = PacketHandlers[packet.Id]->HandlePacket(packet);
+		SendPacket(response);
+	}
 }
 
 void BluetoothController::SendPacket(Packet& packet)
@@ -89,6 +86,8 @@ BluetoothController::BluetoothController(const uint8_t receivePin, const uint8_t
 void BluetoothController::Setup(const uint32_t baudrate)
 {
 	softwareSerial.begin(baudrate);
+	AddPacketHandlers();
+	InitializePacketHandlers();
 }
 
 void BluetoothController::Loop()

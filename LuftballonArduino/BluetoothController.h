@@ -1,5 +1,8 @@
 #pragma once
+#ifndef BLUETOOTHCONTROLLER_H
+#define BLUETOOTHCONTROLLER_H
 
+#include "Arduino.h"
 #include <SoftwareSerial.h>
 #include "Packet.h"
 #include "ErrorCode.h"
@@ -29,3 +32,4 @@ public:
 	~BluetoothController() = default;
 };
 
+#endif
