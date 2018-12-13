@@ -16,7 +16,7 @@ class ServoHandler :
 public:
 	ServoHandler(const uint8_t servoPin);
 	void Setup() override;
-	Packet HandlePacket(Packet& packet) override;
+	Packet HandlePacket(const Packet& packet) override;
 };
 
 
@@ -30,7 +30,7 @@ inline void ServoHandler::Setup()
 	_servo.attach(_servoPin);
 }
 
-inline Packet ServoHandler::HandlePacket(Packet& packet)
+inline Packet ServoHandler::HandlePacket(const Packet& packet)
 {
 	_servo.write(packet.Data);
 

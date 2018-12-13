@@ -12,7 +12,7 @@ public:
 	virtual void Setup() = 0;
 
 	//Handles the packet
-	virtual Packet HandlePacket(Packet& packet) = 0;
+	virtual Packet HandlePacket(const Packet& packet) = 0;
 };
 
 #endif

@@ -10,7 +10,7 @@
 class BluetoothController
 {
 private:
-	SoftwareSerial softwareSerial;
+	//SoftwareSerial softwareSerial;
 
 	unsigned long lastHeartbeat = 0;
 
@@ -23,9 +23,8 @@ private:
 	void SendErrorPacket(ErrorCode errorCode);
 
 public:
-	BluetoothController(const uint8_t receivePin, const uint8_t transmitPin);
 
-	void Setup(uint32_t baudrate);
+	void Setup(const uint32_t baudrate);
 	void Loop();
 
 

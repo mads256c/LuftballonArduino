@@ -7,11 +7,11 @@
 #include "BluetoothController.h"
 #include <Servo.h>
 
-BluetoothController bluetoothController{ 10, 11 };
+BluetoothController bluetoothController{ };
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-	Serial.begin(9600);
+	//Serial.begin(9600);
 	bluetoothController.Setup(9600);
 
 	pinMode(LED_BUILTIN, OUTPUT);

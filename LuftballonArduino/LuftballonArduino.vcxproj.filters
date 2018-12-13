@@ -13,20 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="src">
-      <UniqueIdentifier>{80c30c5f-e565-4b23-a619-f75dcfb2c0f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\_micro-api-readonly">
-      <UniqueIdentifier>{ec6749a4-dfe0-46be-9eec-1ccc0958bdaa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\_micro-api-readonly\core">
-      <UniqueIdentifier>{9f0ff240-98cb-484b-bf7b-32c839dabe32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\_micro-api-readonly\libraries">
-      <UniqueIdentifier>{2211e0fc-ecdd-4c09-acbc-85b214f5ad02}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\PacketHandlers">
       <UniqueIdentifier>{5c586f75-89a4-4db5-b5bf-35b2120e369c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{5d6b0f4b-4c32-402c-96b6-743c4943430f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api-readonly">
+      <UniqueIdentifier>{2027afff-b1dc-4966-bdf6-d9f834cb531e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api-readonly\core">
+      <UniqueIdentifier>{a468dfad-b4ba-439c-b4de-c53505c11d9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api-readonly\libraries">
+      <UniqueIdentifier>{7a776b30-4868-48c0-b325-ef3b9cc308ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\_micro-api-readonly\libraries\SoftwareSerial">
+      <UniqueIdentifier>{97b7b288-9c2f-45e4-beff-1155dbedf118}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,9 +37,36 @@
     <None Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.S">
       <Filter>src\_micro-api-readonly\core</Filter>
     </None>
+    <None Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SoftwareSerial\library.properties">
+      <Filter>src\_micro-api-readonly\libraries\SoftwareSerial</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.LuftballonArduino.vsarduino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BluetoothController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHandlers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPacketHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LedHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="ServoHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\Arduino.h">
@@ -99,32 +129,14 @@
     <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\variants\standard\pins_arduino.h">
       <Filter>src\_micro-api-readonly\core</Filter>
     </ClInclude>
-    <ClInclude Include="BluetoothController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Packet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketHandlers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ErrorCode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IPacketHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LedHandler.h">
-      <Filter>Header Files\PacketHandlers</Filter>
-    </ClInclude>
-    <ClInclude Include="ServoHandler.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SoftwareSerial\src\SoftwareSerial.h">
+      <Filter>src\_micro-api-readonly\libraries\SoftwareSerial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BluetoothController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\abi.cpp">
       <Filter>src\_micro-api-readonly\core</Filter>
     </ClCompile>
@@ -176,8 +188,13 @@
     <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\WString.cpp">
       <Filter>src\_micro-api-readonly\core</Filter>
     </ClCompile>
-    <ClCompile Include="BluetoothController.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SoftwareSerial\src\SoftwareSerial.cpp">
+      <Filter>src\_micro-api-readonly\libraries\SoftwareSerial</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SoftwareSerial\keywords.txt">
+      <Filter>src\_micro-api-readonly\libraries\SoftwareSerial</Filter>
+    </Text>
   </ItemGroup>
 </Project>
