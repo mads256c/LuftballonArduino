@@ -9,6 +9,7 @@
 #include "ServoHandler.h"
 #include "HeartbeatHandler.h"
 #include "AnalogReadHandler.h"
+#include "UltraSonicHandler.h"
 
 #define DEFINE_PACKETHANDLER(id, constructer) PacketHandlers[id] = new constructer
 
@@ -20,6 +21,7 @@ inline void AddPacketHandlers()
 	DEFINE_PACKETHANDLER(4, OnOffHandler(LED_BUILTIN, LOW)); //BuiltIn LED on pin 13
 	DEFINE_PACKETHANDLER(5, ServoHandler(3));
 	DEFINE_PACKETHANDLER(6, AnalogReadHandler(6, A0, A1));
+	DEFINE_PACKETHANDLER(7, UltraSonicHandler(7, 8, 9));
 }
 
 inline void InitializePacketHandlers()
