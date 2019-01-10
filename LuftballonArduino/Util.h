@@ -1,5 +1,8 @@
 #ifndef UTIL_H
 #define UTIL_H
+
+#include <ctype.h>
+
 inline unsigned long long strtoull(const char *nptr, char *endptr, int base)
 {
 	const char *s = nptr;

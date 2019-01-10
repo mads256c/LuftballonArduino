@@ -2,7 +2,7 @@
 #define HEARTBEATHANDLER_H
 
 #include "IPacketHandler.h"
-class HeartbeatHandler :
+class HeartbeatHandler final :
 	public IPacketHandler
 {
 public:

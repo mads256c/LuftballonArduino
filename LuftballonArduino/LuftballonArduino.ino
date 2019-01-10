@@ -5,10 +5,11 @@
 */
 
 #include "BluetoothController.h"
+#include <Arduino.h>
 #include <Servo.h>
 
 
-BluetoothController bluetoothController{ };
+const BluetoothController bluetoothController{ };
 
 // the setup function runs once when you press reset or power the board
 void setup() {

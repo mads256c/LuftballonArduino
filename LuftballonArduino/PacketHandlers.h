@@ -1,8 +1,7 @@
 #ifndef PACKETHANDLERS_H
 #define PACKETHANDLERS_H
 
-#include "Packet.h"
-#include "Arduino.h"
+#include <Arduino.h>
 #include "IPacketHandler.h"
 #include "OnOffHandler.h"
 #include "ServoHandler.h"

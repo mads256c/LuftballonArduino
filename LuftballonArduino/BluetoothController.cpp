@@ -3,7 +3,7 @@
 #include "PacketHandlers.h"
 
 //Reads a command from the bluetooth module.
-Packet BluetoothController::ReadPacket()
+Packet BluetoothController::ReadPacket() const
 {
 	if (!Serial.available())
 		return Packet{ 0, 0 };
@@ -25,7 +25,7 @@ Packet BluetoothController::ReadPacket()
 	return packet;
 }
 
-void BluetoothController::HandlePacket(Packet& packet)
+void BluetoothController::HandlePacket(const Packet& packet) const
 {
 	if (PacketHandlers[packet.Id] == nullptr)
 	{
@@ -38,7 +38,7 @@ void BluetoothController::HandlePacket(Packet& packet)
 	}
 }
 
-void BluetoothController::SendPacket(Packet& packet)
+void BluetoothController::SendPacket(const Packet& packet) const
 {
 
 	//while (!softwareSerial.availableForWrite()) {}
@@ -59,7 +59,7 @@ void BluetoothController::SendPacket(Packet& packet)
 
 }
 
-void BluetoothController::SendErrorPacket(const ErrorCode errorCode)
+void BluetoothController::SendErrorPacket(const ErrorCode errorCode) const
 {
 	Packet packet{ ErrorCodePacketId, static_cast<uint64_t>(errorCode) };
 
@@ -73,7 +73,7 @@ void BluetoothController::Setup(const uint32_t baudrate) const
 	InitializePacketHandlers();
 }
 
-void BluetoothController::Loop()
+void BluetoothController::Loop() const
 {
 	Packet packet = ReadPacket();
 
