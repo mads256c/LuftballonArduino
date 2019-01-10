@@ -4,10 +4,10 @@
 #include "IPacketHandler.h"
 #include "Util.h"
 
-class MemoryHandler :
+class MemoryHandler final :
 	public IPacketHandler
 {
-	uint8_t _packetId;
+	const uint8_t _packetId;
 
 public:
 	explicit MemoryHandler(const uint8_t packetId);

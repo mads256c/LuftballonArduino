@@ -1,4 +1,3 @@
-#pragma once
 #ifndef UTIL_H
 #define UTIL_H
 inline unsigned long long strtoull(const char *nptr, char *endptr, int base)
@@ -88,7 +87,7 @@ extern "C" char* sbrk(int incr);
 extern char *__brkval;
 #endif  // __arm__
 
-inline auto freeMemory() {
+inline int freeMemory() {
 	char top;
 #ifdef __arm__
 	return &top - reinterpret_cast<char*>(sbrk(0));

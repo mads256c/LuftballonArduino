@@ -27,10 +27,12 @@ inline void AddPacketHandlers()
 
 inline void InitializePacketHandlers()
 {
-	for (IPacketHandler* packetHandler : PacketHandlers)
+	for (IPacketHandler* const packetHandler : PacketHandlers)
 	{
 		if (packetHandler != nullptr) packetHandler->Setup();
 	}
 }
+
+#undef DEFINE_PACKETHANDLER
 
 #endif

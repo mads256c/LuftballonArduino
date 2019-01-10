@@ -1,4 +1,3 @@
-#pragma once
 #ifndef BLUETOOTHCONTROLLER_H
 #define BLUETOOTHCONTROLLER_H
 

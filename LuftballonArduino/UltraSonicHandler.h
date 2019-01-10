@@ -1,11 +1,10 @@
-#pragma once
 #ifndef ULTRASONICHANDLER_H
 #define ULTRASONICHANDLER_H
 #include "Arduino.h"
 #include "IPacketHandler.h"
 
 
-class UltraSonicHandler :
+class UltraSonicHandler final :
 	public IPacketHandler
 {
 	const uint8_t _id;
