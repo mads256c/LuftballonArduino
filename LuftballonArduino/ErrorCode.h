@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ERRORCODE_H
+#define ERRORCODE_H
 
 enum class ErrorCode
 {
@@ -9,3 +10,5 @@ enum class ErrorCode
 };
 
 constexpr char ErrorCodePacketId = 2;
+
+#endif

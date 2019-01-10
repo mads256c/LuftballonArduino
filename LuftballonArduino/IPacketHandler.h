@@ -1,8 +1,7 @@
-#pragma once
 #ifndef IPACKETHANDLER_H
 #define IPACKETHANDLER_H
 
-#include <Packet.h>
+#include "Packet.h"
 
 class IPacketHandler
 {

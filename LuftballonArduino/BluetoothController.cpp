@@ -55,14 +55,14 @@ void BluetoothController::SendPacket(Packet& packet)
 
 	//while (!softwareSerial.availableForWrite()) {}
 
-	Serial.write(static_cast<uint8_t>(packet.Data & 0xFF)); //Send packet data
-	Serial.write(static_cast<uint8_t>((packet.Data >> 8) & 0xFF));
-	Serial.write(static_cast<uint8_t>((packet.Data >> 16) & 0xFF));
-	Serial.write(static_cast<uint8_t>((packet.Data >> 24) & 0xFF));
-	Serial.write(static_cast<uint8_t>((packet.Data >> 32) & 0xFF));
-	Serial.write(static_cast<uint8_t>((packet.Data >> 40) & 0xFF));
-	Serial.write(static_cast<uint8_t>((packet.Data >> 48) & 0xFF));
-	Serial.write(static_cast<uint8_t>((packet.Data >> 56) & 0xFF));
+	Serial.write(packet.Data.u8[0]); //Send packet data
+	Serial.write(packet.Data.u8[1]);
+	Serial.write(packet.Data.u8[2]);
+	Serial.write(packet.Data.u8[3]);
+	Serial.write(packet.Data.u8[4]);
+	Serial.write(packet.Data.u8[5]);
+	Serial.write(packet.Data.u8[6]);
+	Serial.write(packet.Data.u8[7]);
 
 }
 

@@ -3,18 +3,13 @@
 #define BLUETOOTHCONTROLLER_H
 
 #include "Arduino.h"
-#include <SoftwareSerial.h>
+//#include <SoftwareSerial.h>
 #include "Packet.h"
 #include "ErrorCode.h"
 
 class BluetoothController
 {
 private:
-	//SoftwareSerial softwareSerial;
-
-	unsigned long lastHeartbeat = 0;
-
-	const unsigned long heartbeatInterval = 1000;
 
 	Packet ReadPacket();
 	void HandlePacket(Packet &packet);
@@ -26,9 +21,6 @@ public:
 
 	void Setup(const uint32_t baudrate);
 	void Loop();
-
-
-	~BluetoothController() = default;
 };
 
 #endif

@@ -1,4 +1,3 @@
-#pragma once
 #ifndef SERVOHANDLER_H
 #define SERVOHANDLER_H
 
@@ -32,7 +31,7 @@ inline void ServoHandler::Setup()
 
 inline Packet ServoHandler::HandlePacket(const Packet& packet)
 {
-	_servo.write(packet.Data);
+	_servo.write(packet.Data.u64);
 
 	return NoopPacket;
 }

@@ -142,7 +142,10 @@
       <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
     <ClInclude Include="UltraSonicHandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\PacketHandlers</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryHandler.h">
+      <Filter>Header Files\PacketHandlers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

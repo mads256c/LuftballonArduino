@@ -1,4 +1,3 @@
-#pragma once
 #ifndef ONOFFHANDLER_H
 #define ONOFFHANDLER_H
 
@@ -29,7 +28,7 @@ inline void OnOffHandler::Setup()
 
 inline Packet OnOffHandler::HandlePacket(const Packet& packet)
 {
-	if (packet.Data)
+	if (packet.Data.u64)
 		digitalWrite(LED_BUILTIN, HIGH);
 	else
 		digitalWrite(LED_BUILTIN, LOW);

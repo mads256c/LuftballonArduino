@@ -1,4 +1,6 @@
-#pragma once
+#ifndef HEARTBEATHANDLER_H
+#define HEARTBEATHANDLER_H
+
 #include "IPacketHandler.h"
 class HeartbeatHandler :
 	public IPacketHandler
@@ -18,5 +20,4 @@ inline Packet HeartbeatHandler::HandlePacket(const Packet& packet)
 	return Packet{ 3, millis() };
 }
 
-
-
+#endif

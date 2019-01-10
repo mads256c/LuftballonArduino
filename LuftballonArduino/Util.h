@@ -1,6 +1,7 @@
 #pragma once
-
-unsigned long long strtoull(const char *nptr, char *endptr, int base)
+#ifndef UTIL_H
+#define UTIL_H
+inline unsigned long long strtoull(const char *nptr, char *endptr, int base)
 {
 	const char *s = nptr;
 	unsigned long long acc;
@@ -61,7 +62,7 @@ unsigned long long strtoull(const char *nptr, char *endptr, int base)
 	return (acc);
 }
 
-char * uintToStr(const uint64_t num, char *str)
+inline char * uintToStr(const uint64_t num, char *str)
 {
 	uint8_t i = 0;
 	uint64_t n = num;
@@ -79,3 +80,23 @@ char * uintToStr(const uint64_t num, char *str)
 
 	return str;
 }
+
+#ifdef __arm__
+// should use uinstd.h to define sbrk but Due causes a conflict
+extern "C" char* sbrk(int incr);
+#else  // __ARM__
+extern char *__brkval;
+#endif  // __arm__
+
+inline auto freeMemory() {
+	char top;
+#ifdef __arm__
+	return &top - reinterpret_cast<char*>(sbrk(0));
+#elif defined(CORE_TEENSY) || (ARDUINO > 103 && ARDUINO != 151)
+	return &top - __brkval;
+#else  // __arm__
+	return __brkval ? &top - __brkval : &top - __malloc_heap_start;
+#endif  // __arm__
+}
+
+#endif

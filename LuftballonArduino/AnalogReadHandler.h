@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ANALOGREADHANDLER_H
+#define ANALOGREADHANDLER_H
 #include "IPacketHandler.h"
 #include "Arduino.h"
 class AnalogReadHandler :
@@ -28,7 +29,7 @@ inline Packet AnalogReadHandler::HandlePacket(const Packet& packet)
 {
 	uint64_t data;
 
-	switch (packet.Data)
+	switch (packet.Data.u64)
 	{
 	case 0:
 		{
@@ -57,3 +58,5 @@ inline Packet AnalogReadHandler::HandlePacket(const Packet& packet)
 	const Packet retPacket{ _packetId, data };
 	return retPacket;
 }
+
+#endif

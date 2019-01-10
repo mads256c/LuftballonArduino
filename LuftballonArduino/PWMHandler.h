@@ -1,4 +1,3 @@
-#pragma once
 #ifndef PWMHANDLER_H
 #define PWMHANDLER_H
 
@@ -30,7 +29,7 @@ inline void PWMHandler::Setup()
 
 inline Packet PWMHandler::HandlePacket(const Packet& packet)
 {
-	analogWrite(_pwmPin, packet.Data);
+	analogWrite(_pwmPin, packet.Data.u64);
 
 	return NoopPacket;
 }
