@@ -33,13 +33,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LuftballonArduino.ino" />
     <None Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\wiring_pulse.S">
       <Filter>src\_micro-api-readonly\core</Filter>
     </None>
     <None Include="..\..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\SoftwareSerial\library.properties">
       <Filter>src\_micro-api-readonly\libraries\SoftwareSerial</Filter>
     </None>
+    <None Include="LuftballonArduino.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.LuftballonArduino.vsarduino.h">

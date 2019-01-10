@@ -28,7 +28,7 @@ inline void PWMHandler::Setup()
 
 inline Packet PWMHandler::HandlePacket(const Packet& packet)
 {
-	analogWrite(_pwmPin, packet.Data.u64);
+	analogWrite(_pwmPin, packet.Data.i16[0]);
 
 	return NoopPacket;
 }

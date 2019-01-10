@@ -31,7 +31,7 @@ inline void ServoHandler::Setup()
 
 inline Packet ServoHandler::HandlePacket(const Packet& packet)
 {
-	_servo.write(packet.Data.u64);
+	_servo.write(packet.Data.i16[0]);
 
 	return NoopPacket;
 }

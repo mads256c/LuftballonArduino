@@ -28,7 +28,7 @@ inline void OnOffHandler::Setup()
 
 inline Packet OnOffHandler::HandlePacket(const Packet& packet)
 {
-	if (packet.Data.u64)
+	if (packet.Data.u8[0])
 		digitalWrite(LED_BUILTIN, HIGH);
 	else
 		digitalWrite(LED_BUILTIN, LOW);
