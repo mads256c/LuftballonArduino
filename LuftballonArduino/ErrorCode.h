@@ -1,6 +1,8 @@
 #ifndef ERRORCODE_H
 #define ERRORCODE_H
 
+#include <stdint.h>
+
 enum class ErrorCode
 {
 	GeneralFailure,
@@ -9,6 +11,6 @@ enum class ErrorCode
 	InvalidRequest
 };
 
-constexpr char ErrorCodePacketId = 2;
+constexpr uint8_t ErrorCodePacketId = 2;
 
 #endif

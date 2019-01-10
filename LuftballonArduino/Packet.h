@@ -1,10 +1,11 @@
 #ifndef PACKET_H
 #define PACKET_H
-#include "Arduino.h"
+
+#include <stdint.h>
 
 struct Packet final
 {
-	union Data final
+	union PacketData final
 	{
 		uint64_t u64;
 		uint32_t u32[2];
@@ -33,10 +34,10 @@ struct Packet final
 		static_assert(sizeof(f) == 8, "f is not 8 bytes long");
 	};
 
-	static_assert(sizeof(Data) == 8, "Data is not 8 bytes long");
+	static_assert(sizeof(PacketData) == 8, "Data is not 8 bytes long");
 
 	uint8_t Id;
-	Data Data;
+	PacketData Data;
 };
 
 static_assert(sizeof(Packet) == 9, "Packet is not 9 bytes long");

@@ -27,26 +27,22 @@ inline void AnalogReadHandler::Setup()
 
 inline Packet AnalogReadHandler::HandlePacket(const Packet& packet)
 {
-	uint64_t data;
+	Packet::PacketData data{};
+	data.u64 = 0;
 
 	switch (packet.Data.u64)
 	{
 	case 0:
-		{
-		data = analogRead(_pin1);
-		const uint64_t p2 = analogRead(_pin2);
-
-		data |= (p2 << 32);
-		}
+		data.i16[0] = analogRead(_pin1);
+		data.i16[1] = analogRead(_pin2);
 		break;
 
 	case 1:
-		data = analogRead(_pin1);
+		data.i16[0] = analogRead(_pin1);
 		break;
 
 	case 2:
-
-		data = analogRead(_pin2);
+		data.i16[0] = analogRead(_pin2);
 		break;
 
 	default:

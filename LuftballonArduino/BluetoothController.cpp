@@ -2,7 +2,7 @@
 #include "Util.h"
 #include "PacketHandlers.h"
 
-//Reads a command from the bluetooth module. buffer must be null initialized.
+//Reads a command from the bluetooth module.
 Packet BluetoothController::ReadPacket()
 {
 	if (!Serial.available())
@@ -14,20 +14,13 @@ Packet BluetoothController::ReadPacket()
 
 	Serial.readBytes(buffer, sizeof(buffer));
 
-	//Serial.println(buffer[0]);
-
-	uint64_t result = 0;
-	for (byte i = 8; i >= 1; i--)
+	Packet::PacketData data{};
+	for (uint8_t i = 0; i < 8; i++)
 	{
-		result <<= 8;
-		result |= static_cast<uint64_t>(buffer[i]);
+		data.u8[i] = buffer[i + 1];
 	}
 
-	char buff[24] = { 0 };
-
-	//Serial.println(uintToStr(result, buff));
-
-	const Packet packet{ buffer[0], result };
+	const Packet packet{ buffer[0], data };
 
 	return packet;
 }
@@ -73,7 +66,7 @@ void BluetoothController::SendErrorPacket(const ErrorCode errorCode)
 	SendPacket(packet);
 }
 
-void BluetoothController::Setup(const uint32_t baudrate)
+void BluetoothController::Setup(const uint32_t baudrate) const
 {
 	Serial.begin(baudrate);
 	AddPacketHandlers();

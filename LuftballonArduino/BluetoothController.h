@@ -18,7 +18,7 @@ private:
 
 public:
 
-	void Setup(const uint32_t baudrate);
+	void Setup(const uint32_t baudrate) const;
 	void Loop();
 };
 

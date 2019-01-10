@@ -2,10 +2,10 @@
 #define SERVOHANDLER_H
 
 #include "IPacketHandler.h"
-#include "Arduino.h"
+#include <stdint.h>
 #include <Servo.h>
 
-class ServoHandler :
+class ServoHandler final :
 	public IPacketHandler
 {
 

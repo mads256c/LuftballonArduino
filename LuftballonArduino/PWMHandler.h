@@ -2,7 +2,7 @@
 #define PWMHANDLER_H
 
 #include "IPacketHandler.h"
-#include "Arduino.h"
+#include <stdint.h>
 
 //Does not work when a servo is in use.
 class PWMHandler :
@@ -17,8 +17,7 @@ public:
 };
 
 
-
-PWMHandler::PWMHandler(const uint8_t pwmPin) : _pwmPin(pwmPin)
+inline PWMHandler::PWMHandler(const uint8_t pwmPin) : _pwmPin(pwmPin)
 {
 }
 
