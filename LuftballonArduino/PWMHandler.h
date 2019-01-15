@@ -11,7 +11,7 @@ class PWMHandler :
 	const uint8_t _pwmPin;
 
 public:
-	PWMHandler(const uint8_t pwmPin);
+	explicit PWMHandler(const uint8_t pwmPin);
 	void Setup() override;
 	Packet HandlePacket(const Packet& packet) override;
 };

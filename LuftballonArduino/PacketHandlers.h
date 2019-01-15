@@ -14,6 +14,7 @@
 
 IPacketHandler* PacketHandlers[256] = { nullptr };
 
+//Adds packethandlers.
 inline void AddPacketHandlers()
 {
 	DEFINE_PACKETHANDLER(3, new HeartbeatHandler());
@@ -24,6 +25,7 @@ inline void AddPacketHandlers()
 	DEFINE_PACKETHANDLER(8, new MemoryHandler(8));
 }
 
+//Initializes packethandlers (runs their setup function)
 inline void InitializePacketHandlers()
 {
 	for (IPacketHandler* const packetHandler : PacketHandlers)

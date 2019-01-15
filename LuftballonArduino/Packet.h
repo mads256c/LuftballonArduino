@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+//Holds Bluetooth packet data
 struct Packet final
 {
 	union PacketData final
@@ -34,7 +35,7 @@ struct Packet final
 		static_assert(sizeof(f) == 8, "f is not 8 bytes long");
 	};
 
-	static_assert(sizeof(PacketData) == 8, "Data is not 8 bytes long");
+	static_assert(sizeof(PacketData) == 8, "PacketData is not 8 bytes long");
 
 	uint8_t Id;
 	PacketData Data;

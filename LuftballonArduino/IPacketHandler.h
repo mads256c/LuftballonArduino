@@ -2,9 +2,11 @@
 #define IPACKETHANDLER_H
 
 #include "Packet.h"
-
+//Base interface for packet handlers.
 class IPacketHandler
 {
+	
+
 public:
 
 	//Initializes the Packethandler

@@ -13,7 +13,7 @@ class ServoHandler final :
 	const uint8_t _servoPin;
 
 public:
-	ServoHandler(const uint8_t servoPin);
+	explicit ServoHandler(const uint8_t servoPin);
 	void Setup() override;
 	Packet HandlePacket(const Packet& packet) override;
 };

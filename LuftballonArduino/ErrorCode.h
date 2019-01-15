@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+//General error code enum.
 enum class ErrorCode
 {
 	GeneralFailure,

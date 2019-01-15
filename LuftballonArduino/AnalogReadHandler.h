@@ -1,7 +1,7 @@
 #ifndef ANALOGREADHANDLER_H
 #define ANALOGREADHANDLER_H
 #include "IPacketHandler.h"
-#include "Arduino.h"
+#include <Arduino.h>
 class AnalogReadHandler :
 	public IPacketHandler
 {
@@ -16,8 +16,7 @@ public:
 };
 
 
-
-AnalogReadHandler::AnalogReadHandler(const uint8_t packetId, const uint8_t pin1, const uint8_t pin2) : _packetId(packetId),_pin1(pin1), _pin2(pin2)
+inline AnalogReadHandler::AnalogReadHandler(const uint8_t packetId, const uint8_t pin1, const uint8_t pin2) : _packetId(packetId),_pin1(pin1), _pin2(pin2)
 {
 }
 

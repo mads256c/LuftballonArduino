@@ -89,8 +89,8 @@ extern "C" char* sbrk(int incr);
 #else  // __ARM__
 extern char *__brkval;
 #endif  // __arm__
-
-inline int freeMemory() {
+//Gets the remaining free memory.
+inline int GetFreeMemory() {
 	char top;
 #ifdef __arm__
 	return &top - reinterpret_cast<char*>(sbrk(0));

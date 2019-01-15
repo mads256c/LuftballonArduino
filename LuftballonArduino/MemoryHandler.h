@@ -28,7 +28,7 @@ inline void MemoryHandler::Setup()
 
 inline Packet MemoryHandler::HandlePacket(const Packet& packet)
 {
-	return Packet{ _packetId, freeMemory() };
+	return Packet{ _packetId, GetFreeMemory() };
 }
 
 #endif
