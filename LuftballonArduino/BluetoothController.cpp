@@ -1,5 +1,4 @@
 #include "BluetoothController.h"
-#include "Util.h"
 #include "PacketHandlers.h"
 
 //Reads a command from the bluetooth module.
@@ -8,6 +7,7 @@ Packet BluetoothController::ReadPacket() const
 	if (!Serial.available())
 		return Packet{ 0, 0 };
 
+	//Wait until we read the packet preamble. This is not perfect, but it should synchronize the packets.
 	while(Serial.read() != 0xFF) {}
 	
 	uint8_t buffer[9] = { 0 };
@@ -15,10 +15,15 @@ Packet BluetoothController::ReadPacket() const
 	Serial.readBytes(buffer, sizeof(buffer));
 
 	Packet::PacketData data{};
-	for (uint8_t i = 0; i < 8; i++)
-	{
-		data.u8[i] = buffer[i + 1];
-	}
+
+	data.u8[0] = buffer[1];
+	data.u8[1] = buffer[2];
+	data.u8[2] = buffer[3];
+	data.u8[3] = buffer[4];
+	data.u8[4] = buffer[5];
+	data.u8[5] = buffer[6];
+	data.u8[6] = buffer[7];
+	data.u8[7] = buffer[8];
 
 	const Packet packet{ buffer[0], data };
 
@@ -33,7 +38,7 @@ void BluetoothController::HandlePacket(const Packet& packet) const
 	}
 	else
 	{
-		Packet response = PacketHandlers[packet.Id]->HandlePacket(packet);
+		const Packet response = PacketHandlers[packet.Id]->HandlePacket(packet);
 		SendPacket(response);
 	}
 }
@@ -41,12 +46,11 @@ void BluetoothController::HandlePacket(const Packet& packet) const
 void BluetoothController::SendPacket(const Packet& packet) const
 {
 
-	//while (!softwareSerial.availableForWrite()) {}
-	Serial.write(0xFF);
+
+	Serial.write(0xFF); //Send packet preamble
 
 	Serial.write(packet.Id); //Send packet id
 
-	//while (!softwareSerial.availableForWrite()) {}
 
 	Serial.write(packet.Data.u8[0]); //Send packet data
 	Serial.write(packet.Data.u8[1]);
@@ -61,7 +65,7 @@ void BluetoothController::SendPacket(const Packet& packet) const
 
 void BluetoothController::SendErrorPacket(const ErrorCode errorCode) const
 {
-	Packet packet{ ErrorCodePacketId, static_cast<uint64_t>(errorCode) };
+	const Packet packet{ ErrorCodePacketId, static_cast<uint64_t>(errorCode) };
 
 	SendPacket(packet);
 }
@@ -75,21 +79,9 @@ void BluetoothController::Setup(const uint32_t baudrate) const
 
 void BluetoothController::Loop() const
 {
-	Packet packet = ReadPacket();
+	const Packet packet = ReadPacket();
 
 	if (packet.Id != 0) // 0 in id means no data was received
 		HandlePacket(packet);
 
-
-	//SendErrorPacket(ErrorCode::NoPacketHandler);
-
-	//softwareSerial.write(ErrorCodePacketId);
-	//softwareSerial.write(1);
-	//softwareSerial.write(2);
-	//softwareSerial.write(3);
-	//softwareSerial.write(4);
-	//softwareSerial.write(5);
-	//softwareSerial.write(6);
-	//softwareSerial.write(7);
-	//softwareSerial.write(8);
 }
